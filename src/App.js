@@ -5,6 +5,7 @@ function App() {
   const [responseData, setResponseData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -22,7 +23,7 @@ function App() {
     formData.append('file', file);
 
     try {
-      const res = await fetch("http://localhost:8000/analyze", {
+      const res = await fetch(`${backendURL}/analyze`, {
         method: "POST",
         body: formData,
       });
