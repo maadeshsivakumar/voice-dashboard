@@ -22,7 +22,7 @@ function App() {
     formData.append('file', file);
 
     try {
-      backendURL = process.env.REACT_APP_BACKEND_URL
+      const backendURL = process.env.REACT_APP_BACKEND_URL
       const res = await fetch(`${backendURL}/analyze`, {
         method: "POST",
         body: formData,
